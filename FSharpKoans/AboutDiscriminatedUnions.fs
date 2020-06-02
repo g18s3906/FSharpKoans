@@ -82,19 +82,4 @@ module ``07: The Good Kind of Discrimination`` =
     | Empty
     | Node of string * BinaryTree * BinaryTree
 
-    [<Test>]
-    let ``06 A discriminated union can refer to itself (i.e., it can be recursive).`` () =
-        let rec depth x =
-            match x with
-            | Empty -> 0
-            | Node (_, a, b) -> 1 + max (depth a) (depth b)
-
-        let a = Node("a",
-                   Node("b",
-                     Node("d",
-                       Node("e",
-                         Node("f",
-                           Node("g"),Empty),Empty),Empty),Node("c",Empty,Empty))
-                    
-                                                                                                                                                                                                                                                   ; // <-- you may want to spread this over multiple lines and/or let-bindings ...!
-        depth a |> should equal 4
+  
